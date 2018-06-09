@@ -1,0 +1,14 @@
+﻿@model List<Kodisoft_Test.Models.ItemModel>
+
+    @{
+    ViewData["Title"] = "Feed";
+    }
+
+    <h2>Feed</h2>
+    @for(int i=0; i < Model.Count; i++)
+    {
+        <h3 class="title">@Model[i].Title</h3>
+        <span class="content">@Model[i].Content</span> <br /> 
+        <a href="@Model[i].Link">Подробнее</a> <br /> <hr />
+    }
+
