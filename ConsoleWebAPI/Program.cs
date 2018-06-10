@@ -14,7 +14,6 @@ namespace ConsoleWebAPI
 
             foreach (var i in item)
             {
-                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine();
 
                 Console.WriteLine("Title: {0}\n" +
@@ -24,6 +23,7 @@ namespace ConsoleWebAPI
 
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(new string('-', 100));
+                Console.ResetColor(); 
             }
 
             Console.ReadKey();
