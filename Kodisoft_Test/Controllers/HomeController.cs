@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Kodisoft_Test.Models;
 using Kodisoft_Test.Extensions;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Kodisoft_Test.Controllers
 {
@@ -18,10 +19,7 @@ namespace Kodisoft_Test.Controllers
 
         public IActionResult Feed()
         {
-            FeedParse parser = new FeedParse();
-            var items = parser.Parse("http://fakty.ua/rss_feed/science", FeedType.RSS);
-
-            return View(items); 
+            return View(); 
         }
 
         public IActionResult About()
