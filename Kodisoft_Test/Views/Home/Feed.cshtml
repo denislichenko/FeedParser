@@ -15,15 +15,13 @@
         $.getJSON(uri)
             .done(function (data) {
                 $.each(data, function (key, item) {
-                    $(formatItem(item)).appendTo($('#feeds'));
+                    var text = `<h3>${item.title}</h3>
+                                  <span>${item.content}</span> <br />
+                                  <a href="${item.link}">Подробнее</a> <br /> 
+                                  <hr />`;
+
+                    $(text).appendTo($('#feeds'));
                 });
             });
     });
-
-    function formatItem(item) {
-        return '<h3>' + item.title + '</h3>' +
-            '<span>' + item.content + '</span> <br />' +
-            '<a href="' + item.link + '">Подробнее</a> <br />' +
-            '<hr />';
-    }
 </script>
