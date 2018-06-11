@@ -1,14 +1,29 @@
 ﻿@model List<Kodisoft_Test.Models.ItemModel>
 
-    @{
+@{
     ViewData["Title"] = "Feed";
-    }
+}
 
-    <h2>Feed</h2>
-    @for(int i=0; i < Model.Count; i++)
-    {
-        <h3 class="title">@Model[i].Title</h3>
-        <span class="content">@Model[i].Content</span> <br /> 
-        <a href="@Model[i].Link">Подробнее</a> <br /> <hr />
-    }
+<h2>Feed</h2>
+<div id="feeds" />
 
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    var uri = "https://localhost:44361/api/Feed/all";
+
+    $(document).ready(function () {
+        $.getJSON(uri)
+            .done(function (data) {
+                $.each(data, function (key, item) {
+                    $(formatItem(item)).appendTo($('#feeds'));
+                });
+            });
+    });
+
+    function formatItem(item) {
+        return '<h3>' + item.title + '</h3>' +
+            '<span>' + item.content + '</span> <br />' +
+            '<a href="' + item.link + '">Подробнее</a> <br />' +
+            '<hr />';
+    }
+</script>
