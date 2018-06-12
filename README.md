@@ -1,7 +1,8 @@
 # FeedParser
 Solution of a test task in one of the companies.
 
-Use the following GET-Request to get the latest news: https://localhost/api/Feed/{type}
+WebPage: https://localhost/Home/Feed
+Use the following GET-Request to API to get the latest news: https://localhost/api/Feed/{type}
 
 Possible Types: 
 
